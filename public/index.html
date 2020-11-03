@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Unlocker</title>
+</head>
+
+<body>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <div>
+            <label>Select locked PDF file:</label>
+            <br />
+            File: <input type="file" name="myFile" />
+            <br />
+            Password: <input type="input" name="pass" />
+        </div>
+        <div>
+            <input type="submit" name="btn_upload" value="Upload" />
+        </div>
+    </form>
+
+    <script>
+        var formdata = new FormData();
+
+
+        var requestOptions = {
+            method: 'POST',
+            redirect: 'follow'
+        };
+
+        fetch("/upload", requestOptions)
+            .then(response => {
+                filename = response.headers.get("content-disposition");
+                return response.blob();
+            })
+            .then(result => download(result.blob, filename))
+            .catch(error => console.log('error', error));
+
+    </script>
+</body>
+
+</html>

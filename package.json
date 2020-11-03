@@ -1,0 +1,20 @@
+{
+  "name": "pdfunlocker",
+  "version": "1.0.0",
+  "description": "server that get locked pdf file and password and return the unlocked file",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./server/server.js",
+    "dev": "nodemon ./server/server.js"
+  },
+  "author": "Ariel Benesh",
+  "license": "ISC",
+  "dependencies": {
+    "clean-directory": "^1.0.0",
+    "express": "^4.17.1",
+    "multer": "^1.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
